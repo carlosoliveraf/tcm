@@ -1,0 +1,31 @@
+<div style="width: 50%; display: table; margin: auto; margin-top: 2%">
+	<h4>Character Data:</h4>
+
+	<select ng-model="character" style="margin: 2%; background-color: #ffffff; width: 35%;" class="form-control" name="vocation" ng-options="character.name for character in characters">
+		<option value="">Select the character</option>
+	</select>
+	<table class="table" style="width: 95%; margin: 2%; table-layout: fixed;
+  border-collapse: collapse;" ng-if="character">
+		<tr>
+			<th ng-click="setOrder('name')">Name</th>
+			<th ng-click="setOrder('level')">Level</th>
+			<th ng-click="setOrder('vocation')">Vocation</th>
+			<th ng-click="setOrder('stamina')">Stamina</th>
+
+			<th></th>
+		</tr>
+	<!-- 	<tr ng-repeat="character in characters | orderBy: field : direction"> -->
+		<tr>
+			<td>{{character.name}}</td>
+			<td>{{character.level}}</td>
+			<td>{{character.vocation}}</td>
+			<td>{{character.stamina}}</td>
+
+			<td>
+			<button class="btn btn-info btn-sm" ng-click="editCharacter(character)">Edit</button>
+			<button class="btn btn-danger btn-sm" ng-click="eraseCharacter(character)">Delete</button></td>
+		</tr>
+	</table>
+
+<br/>
+</div>
